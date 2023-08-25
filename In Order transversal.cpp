@@ -2,7 +2,7 @@
 
 #include<iostream>
 using namespace std;
-struct node{
+struct node{ 
     struct node*left;
     struct node*right;
     int d;
