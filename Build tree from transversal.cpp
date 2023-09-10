@@ -23,13 +23,22 @@ int search(int inorder[],int start,int end,int curr){
     return -1;
 }
 
-void inorderprint(Node*root){
+void inorder(Node*root){
     if(root==NULL){
         return;
     }
-    inorderprint(root->left);
+    inorder(root->left);
     cout<<root->d<<" ";
-    inorderprint(root->right);
+    inorder(root->right);
+}
+
+void preorder(Node*root){
+    if(root==NULL){
+        return;
+    }
+    cout<<root->d<<" ";
+    inorder(root->left);
+    inorder(root->right);
 }
 
 Node* buildTree(int preorder[], int inorder[], int start, int end){
@@ -55,10 +64,12 @@ Node* buildTree(int preorder[], int inorder[], int start, int end){
 
 int main(){
     
-    int preorder[]={1,2,4,3,5};
-    int inorder[]={4,2,1,5,3};
-    Node*root = buildTree(preorder,inorder,0,4);
-    inorderprint(root);
+    int p[]={1,2,4,3,5};
+    int io[]={4,2,1,5,3};
+    Node*root = buildTree(p,io,0,4);
+    inorder(root);
+    cout<<endl;
+    preorder(root);
     return 0;
     
 }
