@@ -56,12 +56,7 @@ Node* buildTree(int preorder[], int inorder[], int start, int end){
     node->left=buildTree(preorder,inorder,start,pos-1);
     node->right=buildTree(preorder,inorder,pos+1,end);
     return node;
-    
-    
 }
-
-
-
 int main(){
     
     int p[]={1,2,4,3,5};
